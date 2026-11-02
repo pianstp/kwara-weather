@@ -1,0 +1,34 @@
+.wrap {
+  padding: 14px 18px;
+  border-top: 1px solid #f1f5f9;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.chart {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 6px 0;
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  width: 100%;
+}
+
+.tooltip {
+  background: #ffffff;
+  border: 1.5px solid #bae6fd;
+  border-radius: 8px;
+  padding: 6px 12px;
+  box-shadow: 0 4px 12px rgba(14,165,233,0.12);
+}
+
+.tooltipTime { font-size: 0.68rem; color: #94a3b8; margin: 0 0 1px; font-weight: 500; }
+.tooltipTemp { font-size: 0.95rem; font-weight: 700; color: #0ea5e9; margin: 0; }

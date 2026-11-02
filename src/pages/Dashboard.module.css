@@ -1,0 +1,88 @@
+.page {
+  padding: 20px 16px;
+  transition: background 0.8s ease;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sunny  { background: linear-gradient(160deg, #fef9c3 0%, #bae6fd 50%, #e0f2fe 100%); }
+.cloudy { background: linear-gradient(160deg, #e2e8f0 0%, #cbd5e1 50%, #dde6f0 100%); }
+.rainy  { background: linear-gradient(160deg, #bfdbfe 0%, #93c5fd 50%, #dbeafe 100%); }
+.storm  { background: linear-gradient(160deg, #c7d2fe 0%, #a5b4fc 50%, #ddd6fe 100%); }
+.night  { background: linear-gradient(160deg, #1e293b 0%, #0f172a 60%, #1e3a5f 100%); }
+
+.layout {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+  align-items: start;
+}
+
+.mainCol, .sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(14, 165, 233, 0.07), 0 1px 3px rgba(0,0,0,0.05);
+  min-width: 0;
+}
+
+.night .card {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+.errorWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 14px;
+  text-align: center;
+}
+
+.errorIcon { color: #94a3b8; }
+.errorTitle { margin: 0; font-size: 1.1rem; color: #0f172a; font-weight: 600; }
+.errorMsg { margin: 0; font-size: 0.85rem; color: #64748b; max-width: 280px; }
+
+.retryBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0ea5e9;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 9px 20px;
+  transition: background 0.2s;
+}
+.retryBtn:hover { background: #0284c7; }
+
+/* Tablet: stack columns */
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .page { padding: 12px 10px; }
+  .layout { gap: 12px; }
+}

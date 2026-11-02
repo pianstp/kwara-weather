@@ -1,0 +1,104 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 72px 16px 16px;
+  overflow-y: auto;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 24px;
+  width: min(320px, calc(100vw - 32px));
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.heading { margin: 0; font-size: 1rem; font-weight: 700; color: #0f172a; }
+
+.close {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s;
+}
+
+.close:hover { background: #fee2e2; color: #ef4444; }
+
+.empty {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+
+.item {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.item:hover { border-color: #bae6fd; }
+
+.locBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  color: #475569;
+  font-size: 0.875rem;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.locBtn:hover { background: #f0f9ff; color: #0f172a; }
+.locBtn strong { color: #0f172a; }
+.pin { color: #0ea5e9; flex-shrink: 0; }
+
+.remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #cbd5e1;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.remove:hover { color: #ef4444; }

@@ -95,8 +95,8 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/atmos-weather.git
-cd atmos-weather
+git clone https://github.com/pianstp/kwara-weather.git
+cd kwara-weather
 
 # Install dependencies
 npm install

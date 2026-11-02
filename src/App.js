@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { SettingsProvider } from './context/SettingsContext';
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import SettingsPanel from './components/SettingsPanel';
+import SavedLocations from './components/SavedLocations';
 
 function App() {
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showSaved, setShowSaved] = useState(false);
+  const [activeSection, setActiveSection] = useState('dashboard');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SettingsProvider>
+      <div style={{ overflowX: 'hidden', width: '100%', minHeight: '100vh' }}>
+        <Navbar
+          onSearch={setSelectedLocation}
+          onSettingsOpen={() => setShowSettings(true)}
+          onSavedOpen={() => setShowSaved(true)}
+          activeSection={activeSection}
+          onNav={setActiveSection}
+        />
+        <Dashboard selectedLocation={selectedLocation} />
+        {showSettings && <SettingsPanel onClose={() => setShowSettings(false)} />}
+        {showSaved && (
+          <SavedLocations
+            onSelect={setSelectedLocation}
+            onClose={() => setShowSaved(false)}
+          />
+        )}
+      </div>
+    </SettingsProvider>
   );
 }
 
