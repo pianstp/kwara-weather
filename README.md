@@ -1,70 +1,233 @@
-# Getting Started with Create React App
+# ATMOS — Weather Intelligence Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive weather forecasting application built with React. ATMOS delivers real-time weather data through a clean, atmospheric dashboard interface powered by the Open-Meteo API — no API key required.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Live Demo
 
-### `npm start`
+> Deploy to Vercel or Netlify and paste your link here.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+> Add desktop and mobile screenshots here after deployment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Current weather** — temperature, feels-like, condition, high/low, weather icon
+- **Weather metrics** — humidity, wind speed & direction, visibility, cloud cover, UV index
+- **Hourly forecast** — 24-hour scrollable timeline with precipitation probability, current hour highlighted
+- **Temperature chart** — interactive area chart showing temperature trend across the day (Recharts)
+- **7-day forecast** — expandable daily cards with high/low temps, condition, rain probability and UV max
+- **Sunrise & sunset** — animated sun-path progress bar with daylight duration
+- **City search** — debounced search with location suggestions (city, region, country context)
+- **Saved locations** — bookmark favourite cities, switch between them instantly
+- **Settings panel** — toggle temperature unit (°C / °F), wind speed unit (km/h / m/s / mph), time format (12h / 24h), and theme
+- **Weather-dependent backgrounds** — page gradient changes based on condition (sunny, cloudy, rainy, storm, night)
+- **Loading skeletons** — shimmer placeholders while data fetches
+- **Error handling** — network failures, API errors, and empty search results all handled gracefully
+- **Fully responsive** — works on desktop, tablet, and mobile at 100% zoom
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+| Technology | Purpose |
+|---|---|
+| React 19 | UI framework |
+| Create React App | Build tooling |
+| CSS Modules | Component-scoped styling |
+| Recharts | Temperature trend chart |
+| Lucide React | Icons |
+| Open-Meteo API | Weather forecast data (no API key) |
+| Open-Meteo Geocoding API | City search & coordinates |
+| LocalStorage | Persisted settings and saved locations |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── components/
+│   ├── Navbar.jsx / .module.css
+│   ├── SearchBar.jsx / .module.css
+│   ├── CurrentWeather.jsx / .module.css
+│   ├── WeatherMetrics.jsx / .module.css
+│   ├── HourlyForecast.jsx / .module.css
+│   ├── TemperatureChart.jsx / .module.css
+│   ├── WeeklyForecast.jsx / .module.css
+│   ├── SunriseSunset.jsx / .module.css
+│   ├── SettingsPanel.jsx / .module.css
+│   ├── SavedLocations.jsx / .module.css
+│   └── WeatherSkeleton.jsx / .module.css
+├── pages/
+│   └── Dashboard.jsx / .module.css
+├── services/
+│   ├── weatherApi.js        # Open-Meteo forecast requests
+│   └── geocodingApi.js      # Open-Meteo city search
+├── hooks/
+│   └── useWeather.js        # Data fetching & state
+├── context/
+│   └── SettingsContext.jsx  # Global settings (units, theme, saved locations)
+├── utils/
+│   ├── weatherCodes.js      # WMO code → label, icon, background
+│   ├── formatTemperature.js # °C ↔ °F, wind unit conversion
+│   └── formatTime.js        # Time, date, daylight duration formatting
+├── App.js
+└── index.css
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Node.js 16 or higher
+- npm
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+# Clone the repository
+git clone https://github.com/your-username/atmos-weather.git
+cd atmos-weather
 
-### Analyzing the Bundle Size
+# Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Start the development server
+npm start
+```
 
-### Making a Progressive Web App
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Build for Production
 
-### Advanced Configuration
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The optimised build will be in the `build/` folder, ready to deploy.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## API Reference
 
-### `npm run build` fails to minify
+ATMOS uses two free Open-Meteo endpoints — no account or API key needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Geocoding
+
+```
+GET https://geocoding-api.open-meteo.com/v1/search?name={city}&count=8
+```
+
+Converts a city name into latitude, longitude, and timezone.
+
+### Weather Forecast
+
+```
+GET https://api.open-meteo.com/v1/forecast
+  ?latitude={lat}
+  &longitude={lon}
+  &timezone={tz}
+  &current=temperature_2m,apparent_temperature,relative_humidity_2m,
+           weather_code,wind_speed_10m,wind_direction_10m,
+           cloud_cover,is_day,uv_index,visibility,precipitation
+  &hourly=temperature_2m,weather_code,precipitation_probability,apparent_temperature
+  &daily=weather_code,temperature_2m_max,temperature_2m_min,
+         sunrise,sunset,precipitation_probability_max,uv_index_max
+  &forecast_days=7
+```
+
+---
+
+## Data Flow
+
+```
+User searches for a city
+        ↓
+Geocoding API → latitude + longitude + timezone
+        ↓
+Weather Forecast API → current, hourly, daily data
+        ↓
+useWeather hook → maps raw response into app data structure
+        ↓
+Dashboard → renders all components with live data
+```
+
+---
+
+## Colour Palette
+
+| Name | Hex |
+|---|---|
+| Sky blue (accent) | `#0ea5e9` |
+| Light sky | `#38bdf8` |
+| Ice blue | `#e0f2fe` |
+| Primary text | `#0f172a` |
+| Secondary text | `#64748b` |
+| Muted text | `#94a3b8` |
+| Surface | `#ffffff` |
+| Background | `#f0f7ff` |
+| Border | `#e2e8f0` |
+
+---
+
+## Deployment
+
+### Vercel (recommended)
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+
+```bash
+npm run build
+# Drag and drop the build/ folder into Netlify's dashboard
+# or connect your GitHub repository
+```
+
+---
+
+## Checklist
+
+- [x] Dashboard loads with default location (Ilorin, Nigeria)
+- [x] City search works with suggestions
+- [x] Selecting a city updates the full dashboard
+- [x] Current temperature, condition and icon display correctly
+- [x] Feels-like, humidity, wind, visibility, UV index display correctly
+- [x] Hourly forecast scrolls and highlights current hour
+- [x] Temperature chart renders real API data
+- [x] 7-day forecast works with expandable rows
+- [x] Sunrise and sunset display with animated sun path
+- [x] Precipitation probability displays correctly
+- [x] °C / °F conversion updates all measurements
+- [x] Wind speed unit switching works
+- [x] Saved locations persist across sessions
+- [x] Loading skeletons show during fetch
+- [x] API errors are handled with retry option
+- [x] Empty search state handled
+- [x] Fully responsive on desktop, tablet and mobile
+
+---
+
+## License
+
+MIT — free to use and modify.
+
+---
+
+## Acknowledgements
+
+- [Open-Meteo](https://open-meteo.com) — free, open-source weather API
+- [Recharts](https://recharts.org) — composable charting library for React
+- [Lucide React](https://lucide.dev) — clean, consistent icon set
